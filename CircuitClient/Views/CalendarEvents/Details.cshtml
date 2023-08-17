@@ -1,0 +1,9 @@
+@{
+    ViewData["Title"] = $"Description for {Model.Name}";
+}
+
+<h1>@Model.Name</h1>
+
+<p>Details: @Model.Description</p>
+
+@Html.ActionLink("Return to all events", "Index")
