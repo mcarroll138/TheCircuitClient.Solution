@@ -1,0 +1,13 @@
+@{
+    ViewData["Title"] = "CalendarEvents";
+}
+
+<h1>All Calendar Events:</h1>
+
+<ol>
+    @foreach (CalendarEvent calendarEvent in Model)
+    {
+        <li><strong>@calendarEvent.Name</strong> the @calendarEvent.Description | <a
+                href="/CalendarEvents/Details/@(calendarEvent.CalendarEventId)">View Details</a></li>
+    }
+</ol>
