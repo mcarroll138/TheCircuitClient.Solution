@@ -28,4 +28,31 @@ public class CalendarEventsController : Controller
         CalendarEvent.Post(calendarEvent);
         return RedirectToAction("Index");
     }
+
+    public ActionResult Edit(int id)
+    {
+        CalendarEvent calendarEvent = CalendarEvent.GetDetails(id);
+        return View(calendarEvent);
+    }
+    //get calendar details?Get Details? Check Line 34 and 16
+    [HttpPost]
+    public ActionResult Edit(CalendarEvent calendarEvent)
+    {
+        CalendarEvent.Put(calendarEvent);
+        return RedirectToAction("Details", new { id = calendarEvent.CalendarEventId });
+    }
+
+    public ActionResult Delete(int id)
+    {
+        CalendarEvent calendarEvent = CalendarEvent.GetDetails(id);
+        return View(calendarEvent);
+    }
+
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
+    {
+        CalendarEvent.Delete(id);
+        return RedirectToAction("Index")
+    }
+
 }

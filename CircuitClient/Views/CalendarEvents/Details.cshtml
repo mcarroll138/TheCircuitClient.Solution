@@ -6,4 +6,6 @@
 
 <p>Details: @Model.Description</p>
 
+<p>@Html.ActionLink("Edit details", "Edit", new { id = @Model.CalendarEventId})</p>
+<p>@Html.ActionLink("Delete Event", "Delete", new { id = @Model.CalendarEventId})</p>
 @Html.ActionLink("Return to all events", "Index")

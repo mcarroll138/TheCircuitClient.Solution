@@ -27,5 +27,21 @@ namespace CircuitClient.Models
             request.AddJsonBody(newCalendarEvent);
             await client.PostAsync(request);
         }
+        public static async void Put(int id, string newCalendarEvent)
+        {
+            RestClient client = new RestClient("http://localhost:5000/");
+            RestRequest request = new RestRequest($"api/calendarevents/{id}", Method.Put);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddJsonBody(newCalendarEvent);
+            await client.PutAsync(request);
+        }
+
+        public static async void Delete(int id)
+        {
+            RestClient client = new RestClient("http://localhost:5000/");
+            RestRequest request = new RestRequest($"api/calendarevents/{id}", Method.Delete);
+            request.AddHeader("Content-Type", "application/json");
+            await client.DeleteAsync(request);
+        }
     }
 }

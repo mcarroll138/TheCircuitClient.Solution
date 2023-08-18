@@ -35,10 +35,21 @@ namespace CircuitClient.Models
             return calendarEvent;
         }
 
-public static void Post(CalendarEvent calendarEvent)
-{
-    string jsonCalendarEvent = JsonConvert.SerializeObject(calendarEvent);
-    ApiHelper.Post(jsonCalendarEvent);
-}
+        public static void Post(CalendarEvent calendarEvent)
+        {
+            string jsonCalendarEvent = JsonConvert.SerializeObject(calendarEvent);
+            ApiHelper.Post(jsonCalendarEvent);
+        }
+
+        public static void Put(CalendarEvent calendarEvent)
+        {
+            string jsonCalendarEvent = JsonConvert.SerializeObject(calendarEvent);
+            ApiHelper.Put(calendarEvent.CalendarEventId, jsonCalendarEvent);
+        }
+
+        public static void Delete(int id)
+        {
+            ApiHelper.Delete(id);
+        }
     }
 }
