@@ -1,8 +1,22 @@
+@model List<CalendarEvent>
+
 @{
     ViewData["Title"] = "CalendarEvents";
 }
 
 <h1>All Calendar Events:</h1>
+
+<form asp-action="Index" method="get">
+    <h2><strong>Search for an event</strong></h2>
+    <div>
+        <label for="searchTerm">Search:</label>
+        <br>
+        <input type="text" id="searchTerm" name="searchTerm" value="" />
+    </div>
+    <div>
+        <button type="submit">Search</button>
+    </div>
+</form>
 
 <ol>
     @foreach (CalendarEvent calendarEvent in Model)
@@ -14,4 +28,3 @@
 
 <h3>Actions:</h3>
 <p>@Html.ActionLink("Add a new event", "Create")</p>
-

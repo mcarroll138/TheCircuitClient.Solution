@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using RestSharp;
 
+
 namespace CircuitClient.Models
 {
     public class ApiHelper
@@ -43,5 +44,19 @@ namespace CircuitClient.Models
             request.AddHeader("Content-Type", "application/json");
             await client.DeleteAsync(request);
         }
+        public static async Task<string> GetFilteredEvents(string searchTerm)
+        {
+            RestClient client = new RestClient("http://localhost:5000/");
+            RestRequest request = new RestRequest($"api/calendarEvents", Method.Get);
+
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                request.AddParameter("searchTerm", searchTerm);
+            }
+
+            RestResponse response = await client.ExecuteAsync(request);
+            return response.Content;
+        }
+
     }
 }
