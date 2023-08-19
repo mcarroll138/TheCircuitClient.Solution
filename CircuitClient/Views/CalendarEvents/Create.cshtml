@@ -14,7 +14,9 @@
     <br>
     @Html.LabelFor(model => model.Description)
     <br>
-    @Html.TextBoxFor(model => model.Description, new {style= "width: 5%; height: 100px; word-wrap: break-word; overflow-y: scroll;" })
+    @Html.TextAreaFor(model => model.Description, new { style = "width: 75%; height: 100px; word-wrap: break-word; overflow-y: scroll;" })
+
+    @* @Html.TextBoxFor(model => model.Description, new {style= "width: 75%; height: 100px; word-wrap: break-word; overflow-y: scroll;" }) *@
     <br>
     <p>
     <input type="submit" value="Add Event" class="btn btn-primary" />
@@ -24,4 +26,4 @@
 <br>
 <p>@Html.ActionLink("Back to all events", "Index")</p>
 
-//"width: 75%; height: 100px; word-wrap: break-word; overflow-y: scroll;" 
+ 
